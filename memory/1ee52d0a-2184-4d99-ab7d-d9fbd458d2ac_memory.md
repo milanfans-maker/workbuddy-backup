@@ -1,0 +1,39 @@
+# User Memory Profile
+> Last updated: 2026-09-09T22:02:42+08:00
+> Version: 12
+
+## Memory Block
+
+**工作背景**
+用户目前维护两个并行项目：一是四国军棋（联众 .JQH）复盘 HTML 分析工具，工作目录为 C:\Users\WJ\WorkBuddy\军棋，复盘源文件位于 C:\Users\WJ\Documents。军棋工具当前重点是 junqi_replay.html，正在解析 .JQH.TXT 棋谱文件，测试用例为 C:\Users\WJ\Documents\20250221211223.JQH.TXT（含 132 步）；同时也在系统性研究四国军棋经典理论，涵盖流派、布局与残局理论，并计划将成果整理为分类 HTML 网页与统一格式的表格。除此之外，用户还在 ATOM（AI TOP DGX Spark，GB10 / ARM aarch64 / 128GB unified memory / Ubuntu 24.04，hostname aitopatom-7bba，user xiaohan，IP 192.168.0.110）上部署多套 AI 服务栈：ComfyUI + MiniMax H3 视频生成（http://192.168.0.110:8188）、Open WebUI/Ollama（Docker）、conda（Miniforge3），并通过 frp 隧道做公网回连（frp plan B：Win7/2008R2 云服务器 47.98.148.229 作为 frps，ATOM 作为 frpc，需用 Win7 兼容的 frp v0.51.2、.ini 配置文件）。远程桌面方面，正在从 Mac mini M4（user wangjian，host wangjiandeMac-mini，Apple Silicon）和 Windows PC（user wangjian）通过 NoMachine 接入 ATOM，注意 NoMachine 在 ATOM 上必须使用 v9.x（9.5.7 / 9.8.3 等），v10+ 已移除免费版；x11vnc 也已配置为 systemd 服务，可作为远程查看 ATOM 桌面的备用方案。
+
+**个人背景**
+用户对交付物有清晰的形态约束——所有产物都要求是可离线运行的单文件 HTML，UI 风格倾向简洁干净，便于在无网络环境下使用。在 UI 调整过程中，用户习惯用结构化的 ASCII 布局图示来传达方案，并经常尝试多种布局、收敛后才落地。同时用户希望四国军棋理论文章被整理成结构化的表格和分类清晰的 HTML 网页，使用统一的格式输出。语言使用简体中文，偏好分步骤的终端命令并辅以截图验证；在 ATOM 的 zsh 终端上明确要求单行命令（禁止反斜杠续行），沟通方式以截图为主，倾向边走边看的可视化逐步排查，且高度依赖助手代为执行 shell 命令；下载资源时强烈倾向国内镜像（Aliyun、Tsinghua、ModelScope、gh-proxy），避免官方 GitHub/PyPI 链路。
+
+**当前关注**
+军棋工具链方面，已完成 JQL↔JQS 格式转换器（单文件 HTML），junqi_replay.html 持续推进，重点是 .JQH.TXT 棋谱解析以及 132 步样本的回归测试；同时四国军棋经典理论研究（流派、布局、残局理论）正在向结构化产出转化——将各类理论文章按类别整理为统一格式的表格与分类 HTML 网页。ATOM 平台方面，ComfyUI 正在加载 MiniMax H3 视频生成模型、远程通过 http://192.168.0.110:8188 接入调试，Ollama + Open WebUI 在同一台 ATOM 设备上并行搭建中，计划用 128GB 统一内存跑 Qwen2.5:32b/72b 等大模型；公网回连走 frp plan B（Win7 云服务器 47.98.148.229 作 frps，ATOM 作 frpc，Win7 兼容的 frp v0.51.2 + .ini），并通过 NoMachine v9.x 或 x11vnc（systemd 服务）从 Mac mini M4 远程接入 ATOM（ARM/aarch64）桌面。需注意：ATOM 当前 LAN IP 为 192.168.0.110；用户在多个子任务（ComfyUI → frp → NoMachine → Ollama/Open WebUI → Miniforge → 军棋工具）之间频繁切换，且有时未完成前一项就跳转，需要主动帮其回溯确认进行中的事项；在 Win7 云服务器侧还经常碰到过期归档 cmdlet、schannel revocation 等老旧系统怪癖，需使用 --ssl-no-revoke + 右键解压等 workaround。
+
+**近期动态**
+- 推进 junqi_replay.html（工作目录 C:\Users\WJ\WorkBuddy\军棋）开发，目标解析联众 .JQH.TXT 棋谱文件。
+- 以 132 步样本棋谱（C:\Users\WJ\Documents\20250221211223.JQH.TXT）作为复盘解析器的回归测试用例。
+- 完成 JQL（QQ 格式）↔ JQS（联众格式）单文件 HTML 棋谱转换器交付。
+- 在 AI TOP ATOM（GB10 / ARM aarch64 / 128GB unified memory / Ubuntu 24.04，hostname aitopatom-7bba，user xiaohan，LAN IP 192.168.0.110）上搭建 ComfyUI + MiniMax H3 视频生成环境，远程入口为 http://192.168.0.110:8188。
+- 通过 Docker 在同一台 ATOM 上并行部署 Ollama + Open WebUI，从 Mac mini M4 / Windows PC 经 LAN 远程访问。
+- 计划利用 ATOM 128GB 统一内存运行 Qwen2.5:32b/72b 等大模型，并通过 Miniforge3 管理 Python 环境。
+- 走 frp plan B 做公网回连：Win7/Server 2008R2 云服务器（公网 IP 47.98.148.229）作为 frps，ATOM 作为 frpc；服务器侧使用 Win7 兼容的 frp v0.51.2 + .ini 配置文件（非 .toml）。
+- 在 NoMachine 远程桌面侧收敛版本：ATOM 上选择 NoMachine v9.x（Free Edition，如 9.5.7 / 9.8.3），避免 v10+。
+- 配置 x11vnc 作为 ATOM 远程查看备用方案，已以 systemd 服务常驻。
+- 从 Mac mini M4（Apple Silicon，user wangjian）和 Windows PC（user wangjian）两台机器接入 ATOM，LAN 入口固定为 192.168.0.110。
+- 推进四国军棋经典理论研究（流派、布局、残局理论），规划将理论文章整理为分类 HTML 网页与统一格式表格。
+- 持续完善单文件 HTML 交付形态，保持简洁 UI 与完全离线可用。
+
+---
+
+<!-- RAW_JSON_START
+{
+  "uid": "1ee52d0a-2184-4d99-ab7d-d9fbd458d2ac",
+  "memoryBlock": "**工作背景**\n用户目前维护两个并行项目：一是四国军棋（联众 .JQH）复盘 HTML 分析工具，工作目录为 C:\\Users\\WJ\\WorkBuddy\\军棋，复盘源文件位于 C:\\Users\\WJ\\Documents。军棋工具当前重点是 junqi_replay.html，正在解析 .JQH.TXT 棋谱文件，测试用例为 C:\\Users\\WJ\\Documents\\20250221211223.JQH.TXT（含 132 步）；同时也在系统性研究四国军棋经典理论，涵盖流派、布局与残局理论，并计划将成果整理为分类 HTML 网页与统一格式的表格。除此之外，用户还在 ATOM（AI TOP DGX Spark，GB10 / ARM aarch64 / 128GB unified memory / Ubuntu 24.04，hostname aitopatom-7bba，user xiaohan，IP 192.168.0.110）上部署多套 AI 服务栈：ComfyUI + MiniMax H3 视频生成（http://192.168.0.110:8188）、Open WebUI/Ollama（Docker）、conda（Miniforge3），并通过 frp 隧道做公网回连（frp plan B：Win7/2008R2 云服务器 47.98.148.229 作为 frps，ATOM 作为 frpc，需用 Win7 兼容的 frp v0.51.2、.ini 配置文件）。远程桌面方面，正在从 Mac mini M4（user wangjian，host wangjiandeMac-mini，Apple Silicon）和 Windows PC（user wangjian）通过 NoMachine 接入 ATOM，注意 NoMachine 在 ATOM 上必须使用 v9.x（9.5.7 / 9.8.3 等），v10+ 已移除免费版；x11vnc 也已配置为 systemd 服务，可作为远程查看 ATOM 桌面的备用方案。\n\n**个人背景**\n用户对交付物有清晰的形态约束——所有产物都要求是可离线运行的单文件 HTML，UI 风格倾向简洁干净，便于在无网络环境下使用。在 UI 调整过程中，用户习惯用结构化的 ASCII 布局图示来传达方案，并经常尝试多种布局、收敛后才落地。同时用户希望四国军棋理论文章被整理成结构化的表格和分类清晰的 HTML 网页，使用统一的格式输出。语言使用简体中文，偏好分步骤的终端命令并辅以截图验证；在 ATOM 的 zsh 终端上明确要求单行命令（禁止反斜杠续行），沟通方式以截图为主，倾向边走边看的可视化逐步排查，且高度依赖助手代为执行 shell 命令；下载资源时强烈倾向国内镜像（Aliyun、Tsinghua、ModelScope、gh-proxy），避免官方 GitHub/PyPI 链路。\n\n**当前关注**\n军棋工具链方面，已完成 JQL↔JQS 格式转换器（单文件 HTML），junqi_replay.html 持续推进，重点是 .JQH.TXT 棋谱解析以及 132 步样本的回归测试；同时四国军棋经典理论研究（流派、布局、残局理论）正在向结构化产出转化——将各类理论文章按类别整理为统一格式的表格与分类 HTML 网页。ATOM 平台方面，ComfyUI 正在加载 MiniMax H3 视频生成模型、远程通过 http://192.168.0.110:8188 接入调试，Ollama + Open WebUI 在同一台 ATOM 设备上并行搭建中，计划用 128GB 统一内存跑 Qwen2.5:32b/72b 等大模型；公网回连走 frp plan B（Win7 云服务器 47.98.148.229 作 frps，ATOM 作 frpc，Win7 兼容的 frp v0.51.2 + .ini），并通过 NoMachine v9.x 或 x11vnc（systemd 服务）从 Mac mini M4 远程接入 ATOM（ARM/aarch64）桌面。需注意：ATOM 当前 LAN IP 为 192.168.0.110；用户在多个子任务（ComfyUI → frp → NoMachine → Ollama/Open WebUI → Miniforge → 军棋工具）之间频繁切换，且有时未完成前一项就跳转，需要主动帮其回溯确认进行中的事项；在 Win7 云服务器侧还经常碰到过期归档 cmdlet、schannel revocation 等老旧系统怪癖，需使用 --ssl-no-revoke + 右键解压等 workaround。\n\n**近期动态**\n- 推进 junqi_replay.html（工作目录 C:\\Users\\WJ\\WorkBuddy\\军棋）开发，目标解析联众 .JQH.TXT 棋谱文件。\n- 以 132 步样本棋谱（C:\\Users\\WJ\\Documents\\20250221211223.JQH.TXT）作为复盘解析器的回归测试用例。\n- 完成 JQL（QQ 格式）↔ JQS（联众格式）单文件 HTML 棋谱转换器交付。\n- 在 AI TOP ATOM（GB10 / ARM aarch64 / 128GB unified memory / Ubuntu 24.04，hostname aitopatom-7bba，user xiaohan，LAN IP 192.168.0.110）上搭建 ComfyUI + MiniMax H3 视频生成环境，远程入口为 http://192.168.0.110:8188。\n- 通过 Docker 在同一台 ATOM 上并行部署 Ollama + Open WebUI，从 Mac mini M4 / Windows PC 经 LAN 远程访问。\n- 计划利用 ATOM 128GB 统一内存运行 Qwen2.5:32b/72b 等大模型，并通过 Miniforge3 管理 Python 环境。\n- 走 frp plan B 做公网回连：Win7/Server 2008R2 云服务器（公网 IP 47.98.148.229）作为 frps，ATOM 作为 frpc；服务器侧使用 Win7 兼容的 frp v0.51.2 + .ini 配置文件（非 .toml）。\n- 在 NoMachine 远程桌面侧收敛版本：ATOM 上选择 NoMachine v9.x（Free Edition，如 9.5.7 / 9.8.3），避免 v10+。\n- 配置 x11vnc 作为 ATOM 远程查看备用方案，已以 systemd 服务常驻。\n- 从 Mac mini M4（Apple Silicon，user wangjian）和 Windows PC（user wangjian）两台机器接入 ATOM，LAN 入口固定为 192.168.0.110。\n- 推进四国军棋经典理论研究（流派、布局、残局理论），规划将理论文章整理为分类 HTML 网页与统一格式表格。\n- 持续完善单文件 HTML 交付形态，保持简洁 UI 与完全离线可用。",
+  "version": 12,
+  "updatedAt": "2026-09-09T22:02:42+08:00"
+}
+RAW_JSON_END -->
