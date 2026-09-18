@@ -1,0 +1,10 @@
+{
+  "name": "Seedance 视频生成",
+  "installedAt": 1787726285517,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2087446413892354048",
+  "description_zh": "基于 Seedance 视频生成 的 AI 视频生成器，覆盖 Seedance、Seed Dance、即梦视频、字节 Seedance、豆包 Seedance 的裸接口与全部公开模式。当用户需要 Seedance、Seed Dance、即梦视频、字节 Seedance、豆包 Seedance、文生视频、图生视频、参考生视频、AI视频、视频生成、广告、TVC、带货、种草、短剧、漫剧 时使用此 Skill。",
+  "description_en": "AI video generator via AI Hive open API for Seedance. Covers all public modes. Use when users need Seedance, Seed Dance, Jimeng video, ByteDance Seedance, Doubao Seedance video generation.",
+  "iconSource": "letter:auto"
+}

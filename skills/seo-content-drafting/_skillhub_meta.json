@@ -1,0 +1,10 @@
+{
+  "name": "SEO内容生成",
+  "installedAt": 1787099703271,
+  "source": "marketplace",
+  "version": "1.4.0",
+  "skillId": "skill_2088538551106617344",
+  "description_zh": "依据知识库生成产品页、文章、FAQ、标题描述、内链和CTA草稿。适用于用户要求SEO内容生成、生成相关结果或检查执行边界时。",
+  "description_en": "SEO Content Drafting workflow for foreign-trade teams, with explicit evidence, controlled CRM access, confirmation, and safety boundaries.",
+  "iconSource": "letter:auto"
+}
