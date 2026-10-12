@@ -1,0 +1,47 @@
+{
+  "local_base": "/改成这台机器上的项目目录绝对路径",
+  "token": "在此填入微云 mcp_token",
+  "poll_interval": 15,
+  "debounce": 3,
+  "delete_policy": "ignore",
+  "exclude": [
+    "*.bak*",
+    "*.tmp",
+    "*~",
+    ".DS_Store",
+    "*.conflict-*"
+  ],
+  "roots": [
+    {
+      "name": "复盘分析器",
+      "remote_dir_key": "5e5b090bd03ab119b22e150037c3f0b9",
+      "remote_parent_key": "5e5b090bcda8f65256842498df740fec",
+      "globs": [
+        "index.html",
+        "index_task*.html",
+        "*报告_2026*.html",
+        "sfx_preview.html"
+      ]
+    },
+    {
+      "name": "项目配置-memory",
+      "remote_dir_key": "5e5b090b8c2147209f551050b6967ec9",
+      "remote_parent_key": "5e5b090bd03ab119b22e150037c3f0b9",
+      "globs": [
+        ".workbuddy/memory/*.md"
+      ]
+    },
+    {
+      "name": "实战桥",
+      "remote_dir_key": "5e5b090b245a37fde5c2eec99135a221",
+      "remote_parent_key": "5e5b090bcda8f65256842498df740fec",
+      "globs": [
+        "四国军棋实战桥.html",
+        "四国军棋实战桥_使用说明_*.html",
+        "实战桥Windows迁移说明_*.html",
+        "实战桥Windows版.zip",
+        ".workbuddy/bridge_e2e_result.json"
+      ]
+    }
+  ]
+}
